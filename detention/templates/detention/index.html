@@ -1,0 +1,88 @@
+{% extends 'detention/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        {% if student %}
+  <h1>Welcome, {{student}}!</h1>
+  {% else %}
+  <h1>Welcome, {{parent}}!</h1>
+  {% endif %}
+        <p class="lead">Check out your latest updates on your demerits and detentions below. So far, {% if student%} you have {% else %} {{parent.student_username}} has {% endif%} {{dem.count}} demerits and {{det.count}} detentions.
+        If you have any questions regarding these updates, please contact your dean of discipline.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>My profile:</h2>
+            {% if student %}
+          <ul>
+              <li>Username: {{student.username}}</li>
+              <li>Password: *********</li>
+              <li>Advisor: {{student.advisor}}</li>
+              <li>Grade Level: {{student.grade_level}}</li>
+              <li>Profile Created On: {{student.date_created}}</li>
+          </ul>
+            {% else %} <ul><li>Usermame: {{parent.username}}</li>
+              <li>Password: *********</li>
+              <li>Advisor: {{parent.student_username.advisor}}</li>
+              <li>Grade Level: {{parent.student_username.grade_level}}</li>
+              <li>Profile Created On: {{parent.date_created}}</li></ul>
+            {% endif %}
+            <p><a class="btn btn-primary" href="#" role="button">Edit Profile <i class="fa fa-arrow-right" aria-hidden="true"></i></i></a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Demerits:</h2>
+            <div class="table-responsive">
+                <table class="table">
+                <th>Infraction:</th>
+                    <th>Date Assigned:</th>
+                    <th>Quantity:</th>
+                    {% for d in dem %}
+                    <tr>
+                        <td>{{d.infraction}}</td>
+                        <td>{{d.date_assigned}}</td>
+                        <td>{{d.demerit_quantity}}D</td>
+
+
+
+                    </tr>{% endfor %}
+
+
+
+
+                </table>
+            </div>
+          <p><a class="btn btn-primary" href="#" role="button">View Details <i class="fa fa-arrow-right" aria-hidden="true"></i></i></a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Detentions:</h2>
+            <div class="table-responsive">
+                <table class="table">
+                <th>Detention Assigned:</th>
+                    <th>Parent's Approval:</th>
+                    {% for d in dem %}
+                    <tr>
+                        <td>{{d.detention_date}}</td>
+                        <td>{{d.parent_approval}}</td>
+
+
+
+                    </tr>{% endfor %}
+
+
+
+
+                </table>
+            </div>
+
+          <p><a class="btn btn-primary" href="#" role="button">View Details <i class="fa fa-arrow-right" aria-hidden="true"></i> </i></a></p>
+        </div>
+      </div>
+
+{% endblock %}

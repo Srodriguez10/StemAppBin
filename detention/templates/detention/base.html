@@ -41,9 +41,9 @@
         <nav>
           <ul class="nav nav-justified">
             <li><a href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-            <li><a href="#"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Demerits</a></li>
-            <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Detentions</a></li>
+            <li><a href="{% url 'profile' %}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+            <li><a href="{% url 'demerits' %}"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Demerits</a></li>
+            <li><a href="{% url 'detentions' %}"><i class="fa fa-calendar" aria-hidden="true"></i> Detentions</a></li>
             <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
           </ul>
         </nav>

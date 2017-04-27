@@ -10,10 +10,10 @@ QUESTIONS_LIST = (
         ('3','What is the name of your first pet?'),
     )
 
-GRADE_LIST = (('1','09'),
-              ('2','10'),
-              ('3','11'),
-              ('4','12'),
+GRADE_LIST = (('09','09'),
+              ('10','10'),
+              ('11','11'),
+              ('12','12'),
               )
 
 class StudentProfile(models.Model):

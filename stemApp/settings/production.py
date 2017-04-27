@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['raunerstemapp.com', 'www.raunerstemapp.com']
 
 DEFAULT_HOST = 'www'
 DEFAULT_REDIRECT_URL = "http://www.raunerstemapp.com"
-PARENT HOST = "raunerstemapp.com"
+PARENT_HOST = "raunerstemapp.com"
 # Application definition
 
 INSTALLED_APPS = [
